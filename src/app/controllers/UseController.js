@@ -50,7 +50,7 @@ class UseController {
         }
     }
 
-    //Update
+    //UPDATE
     async update(req, res){
         const {id} = req.params;
 
@@ -75,6 +75,7 @@ class UseController {
         }
     }
 
+    //DELETE
     async delete (req, res){
        try {
         const disciplinaToDelete = await Disciplinas.findOne({id: req.params.id}) 
