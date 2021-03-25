@@ -43,8 +43,12 @@ class UseController {
 
         try {
             const disciplinas = await Disciplinas.findOne({id: id});
-
-            return res.status(200).json(disciplinas);
+            if(disciplinas){
+                return res.status(200).json(disciplinas);
+            }
+            else{
+                return res.status(404).json({message: "Disciplina não encontrada"})
+            }
         } catch (error) {
             return res.status(500).json({message: `Erro interno do servidor: ${error}`});
         }
